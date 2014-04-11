@@ -4,7 +4,8 @@
      * @version $1.0.0$
      * @copyright Global Codester
      * @access Public
-     * @uses This is an ATM process program. User will enter amount and program will execute. After completion of execution of program it will display all information.
+     * @uses This is an ATM process program. User will enter amount and program will execute. 
+     		After completion of execution of program it will display all information.
      */
 @session_start();
 $notes=array(  		1=>0,
@@ -133,4 +134,32 @@ function startTransactionProcess($userInputAmount)
 startTransactionProcess(3045);
 startTransactionProcess(1045);
 startTransactionProcess(505);
+
+/* Output:
+
+**************************************************
+Transaction for amount 3045 Completed Successfully.
+1000x3=3000
+500x0=0
+100x0=0
+50x0=0
+20x2=40
+10x0=0
+5x1=5
+2x0=0
+1x0=0
+**************************************************
+Amount avaliable in ATM after Transaction for amount 3045.
+1x10=10
+2x10=10
+5x9=9
+10x10=10
+20x8=8
+50x10=10
+100x10=10
+500x10=10
+1000x7=7
+
+*/
+
 ?>
