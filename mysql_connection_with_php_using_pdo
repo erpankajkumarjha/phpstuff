@@ -8,6 +8,10 @@ $hostname = 'localhost';
 $username = 'root';
 $password = 'root';
 $database= 'pdo_test';
+
+
+=============================================== To Insert Data in Database =================================
+
   try {
   	$user="YYYYYYYY"; $pass="xxxxxxxxxx";
   	
@@ -24,6 +28,39 @@ $database= 'pdo_test';
      /*** bind the paramaters ***/
       $stmt->bindParam(':username', $user, PDO::PARAM_STR);
       $stmt->bindParam(':password', $pass, PDO::PARAM_STR, 5);
+  
+      /*** execute the prepared statement ***/
+      $stmt->execute();
+      
+      /*** close the database connection ***/
+      $dbh = null;
+      
+      }
+  catch(PDOException $e)
+      {
+      echo $e->getMessage();
+      }
+      
+
+=============================================== To Fetch Data from Database =================================
+
+       try {
+  	   $username="YYYYYYYY"; $usertype="xxxxxxxxxx";
+  	
+  	 /*** Open the database connection ***/
+      $dbh = new PDO("mysql:host=$hostname; dbname=$database", $username, $password);
+      echo 'Connected to database';
+      
+     /*** set the error reporting attribute ***/
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      
+     /*** prepare the SQL statement ***/
+      $stmt = $dbh->prepare("SELECT * from users WHERE username = ? AND usertype= ? ");
+  
+
+     /*** bind the paramaters ***/
+      $stmt->bindParam('?', $username, PDO::PARAM_STR);
+      $stmt->bindParam('?', $usertype, PDO::PARAM_STR, 5);
   
       /*** execute the prepared statement ***/
       $stmt->execute();
