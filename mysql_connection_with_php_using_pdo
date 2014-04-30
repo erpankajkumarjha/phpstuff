@@ -2,6 +2,10 @@
 =============================================== PDO ==========================================
 PDO is a PHP extension to formalise PHP's database connections by creating a uniform interface. 
 This allows developers to create code which is portable across many databases and platforms. 
+
+
+Important Note: There isn't any PDO::PARAM for decimals / floats, you'll have to use PDO::PARAM_STR.
+
 */
 
 $hostname = 'localhost';
