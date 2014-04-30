@@ -45,7 +45,7 @@ $database= 'pdo_test';
 =============================================== To Fetch Data from Database =================================
 
        try {
-  	   $username="YYYYYYYY"; $usertype="xxxxxxxxxx";
+  	   $firstname="YYYYYYYY"; $usertype="xxxxxxxxxx";
   	
   	 /*** Open the database connection ***/
       $dbh = new PDO("mysql:host=$hostname; dbname=$database", $username, $password);
@@ -59,7 +59,7 @@ $database= 'pdo_test';
   
 
      /*** bind the paramaters ***/
-      $stmt->bindParam('?', $username, PDO::PARAM_STR);
+      $stmt->bindParam('?', $firstname, PDO::PARAM_STR);
       $stmt->bindParam('?', $usertype, PDO::PARAM_STR, 5);
   
       /*** execute the prepared statement ***/
