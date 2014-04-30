@@ -55,7 +55,7 @@ $database= 'pdo_test';
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       
      /*** prepare the SQL statement ***/
-      $stmt = $dbh->prepare("SELECT * from users WHERE username = ? AND usertype= ? ");
+      $stmt = $dbh->prepare("SELECT * from users WHERE firstname = ? AND usertype= ? ");
   
 
      /*** bind the paramaters ***/
