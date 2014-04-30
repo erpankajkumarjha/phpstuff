@@ -69,6 +69,14 @@ $database= 'pdo_test';
       /*** execute the prepared statement ***/
       $stmt->execute();
       
+      $stmt->setFetchMode(PDO::FETCH_BOTH);
+
+      // fetch
+      while($row = $stmt->fetch()){
+        print_r($row);
+      }
+
+      
       /*** close the database connection ***/
       $dbh = null;
       
