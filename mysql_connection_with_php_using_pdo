@@ -74,3 +74,37 @@ $database= 'pdo_test';
       echo $e->getMessage();
       }
       
+      
+  =============================================== To Update Data in Database =================================
+
+      try {
+  	   $firstname="YYYYYYYY"; $lastname="xxxxxxxxxx",  $userId=1201;
+  	
+  	 /*** Open the database connection ***/
+      $dbh = new PDO("mysql:host=$hostname; dbname=$database", $username, $password);
+      echo 'Connected to database';
+      
+     /*** set the error reporting attribute ***/
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      
+     /*** prepare the SQL statement ***/
+      $stmt = $dbh->prepare("UPDATE users set firstname = ? AND lastname= ? WHERE id= ? ");
+  
+
+     /*** bind the paramaters ***/
+      $stmt->bindParam('?', $firstname, PDO::PARAM_STR);
+      $stmt->bindParam('?', $lastname, PDO::PARAM_STR, 5);
+      $stmt->bindParam('?', $userId, PDO::PARAM_INT);
+  
+      /*** execute the prepared statement ***/
+      $stmt->execute();
+      
+      /*** close the database connection ***/
+      $dbh = null;
+      
+      }
+  catch(PDOException $e)
+      {
+      echo $e->getMessage();
+      }
+      
